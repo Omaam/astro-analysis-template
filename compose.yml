@@ -1,0 +1,37 @@
+services:
+
+  heasoft:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.heasoft
+      args:
+        version: "6.33.2"
+      network: host
+    volumes:
+      - ./work:/work
+    image: heasoft:v6.33.2
+    stdin_open: true
+    tty: true
+
+  python:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.python
+      network: host
+    volumes:
+      - ./work:/work
+    stdin_open: true
+    tty: true
+
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.jupyterlab
+      network: host
+    volumes:
+      - ./work:/work
+    ports:
+      - 8888:8888
+    command:
+          jupyter-lab --ip 0.0.0.0 --allow-root -b localhost
+

@@ -1,0 +1,18 @@
+FROM python:3
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+  curl \
+  git \
+  vim \
+  python3-tk \
+  x11-xserver-utils \
+  x11-apps && \
+  rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+
+COPY requirements.txt /work/
+
+RUN pip install --no-cache-dir -r requirements.txt
