@@ -43,5 +43,5 @@ make python
 https://<ip address>:8888/lab?token=<token>
 ```
 で JupyterLab サービスを展開したコンテナにログインする。
-ただし、 `<token>` は `make logs`における `jupyterlab` の ログメッセージから
+ただし、 `<token>` は `make logs`における `jupyterlab` のログメッセージから
 取得する。
