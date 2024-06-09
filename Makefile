@@ -1,6 +1,10 @@
-all: build up
+# Makefile for managing Docker Compose services
 
-rerun: down build up python heasoft jupyterlab
+.PHONY: run rerun build up down logs heasoft python jupyterlab
+
+run: build up
+
+rerun: down build up
 
 build:
 	docker compose build
@@ -21,4 +25,4 @@ python:
 	docker compose exec python /bin/bash
 
 jupyterlab:
-	docker compose exec jupyterlab /bin/bash
+	docker compose exec python jupyter-lab --ip 0.0.0.0 --allow-root -b localhost

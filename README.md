@@ -3,7 +3,6 @@
 天文学における高エネルギー解析環境のテンプレート。
 
 [HEASoft](https://heasarc.gsfc.nasa.gov/docs/software/heasoft/)、
-[JupyterLab](https://jupyter.org/)、
 [Python](https://www.python.org/)
 の実行環境を構築する。
 
@@ -28,7 +27,7 @@ make heasoft
 で HEASoft サービスを展開したコンテナにログインする。
 
 
-### Python の開発環境
+### Python script の実行
 
 ```shell
 make python
@@ -36,10 +35,13 @@ make python
 で Python サービスを展開したコンテナにログインする。
 
 
-### jupyterlab 環境
+### jupyterlab 開発環境
 
-ブラウザで
+```shell
+make jupyterlab
 ```
-https://<ip address>:8888/lab?token=<token>
-```
-でJupyterLab サービスを展開したコンテナにログインする。ただし、 `<token>` は `make logs`における `jupyterlab` のログメッセージから取得する。
+とすると、コンテナ内で JupyterLab が起動する。
+ログでトークンを含めた、
+`https://<ip address>:8888/lab?token=<token>`
+にアクセスするようにログが出るので、ブラウザでこれを開くと
+JupyterLab にアクセスできる。

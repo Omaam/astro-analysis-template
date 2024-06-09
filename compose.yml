@@ -20,18 +20,7 @@ services:
       network: host
     volumes:
       - ./work:/work
-    stdin_open: true
-    tty: true
-
-  jupyterlab:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile.jupyterlab
-      network: host
-    volumes:
-      - ./work:/work
     ports:
       - 8888:8888
-    command:
-          jupyter-lab --ip 0.0.0.0 --allow-root -b localhost
-
+    stdin_open: true
+    tty: true
