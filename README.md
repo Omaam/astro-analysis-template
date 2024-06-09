@@ -9,7 +9,7 @@
 
 ## Install
 
-必要な `python` ハッケージを`requirements.txt` に記入する。
+必要な Python パッケージを`requirements.txt` に記入する。
 
 make でイメージのビルドからコンテナの作成までを行う。
 ```shell
